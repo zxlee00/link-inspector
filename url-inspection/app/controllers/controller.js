@@ -9,7 +9,10 @@ const { ObjectId } = require("mongodb");
 
 // var credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
 // AWS.config.credentials = credentials;
-const s3 = new AWS.S3();
+const s3 = new AWS.S3({
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+});
 
 exports.inspectLink = (req, res) => {
   /* -------------------------------------------------------------------------- */
